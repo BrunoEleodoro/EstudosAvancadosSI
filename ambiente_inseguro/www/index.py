@@ -37,8 +37,8 @@ def test():
 
 @app.route("/teste/<id>")
 def teste(id):
-    assert section == request.view_args['id']
-    result = Markup('<span style="color: red;">{}</span>'.format(section))
+    id_user = request.view_args['id']
+    result = Markup('<span style="color: red;">{}</span>'.format(id_user))
     return render_template('index.html', result=result)
     
 
