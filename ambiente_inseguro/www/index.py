@@ -45,12 +45,23 @@ def teste():
     result = db.engine.execute(sql_select_Query)
     
     # user = [row[1] for row in result]
-    user = ""
-    
-    for row in result:
-        user = user + str(row[1])
+    content = "<table>"
+    content = content + str("<tr>")
+    content = content + str("<th>nome</th>")
+    content = content + str("<th>email</th>")
+    content = content + str("<th>nro cartao</th>")
+    content = content + str("</tr>")
 
-    result = Markup('<span style="color: red;">{}</span><br>nome={}'.format(id_user, user))
+    for row in result:
+        content = content + str("<tr>")
+        content = content + str("<td>"+str(row[1])+"</td>")
+        content = content + str("<td>"+str(row[2])+"</td>")
+        content = content + str("<td>"+str(row[3])+"</td>")
+        content = content + str("</tr>")
+        
+
+    content = "</table>"
+    result = Markup(content)
 
     return render_template('index.html', result=result)
     
