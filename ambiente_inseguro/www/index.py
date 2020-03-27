@@ -44,7 +44,11 @@ def teste():
     
     result = db.engine.execute(sql_select_Query)
     
-    user = [row[1] for row in result]
+    # user = [row[1] for row in result]
+    user = ""
+    
+    for row in result:
+        user = user + str(row[1])
 
     result = Markup('<span style="color: red;">{}</span><br>nome={}'.format(id_user, user))
 
