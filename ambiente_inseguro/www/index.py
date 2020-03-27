@@ -5,6 +5,7 @@ from flask import Markup
 from flask import render_template
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import text
+from flask import request
 
 app = Flask(__name__)
 
@@ -35,9 +36,9 @@ def test():
     # Return the page with the result.
     return render_template('index.html', result=result)
 
-@app.route("/teste/<id>")
-def teste(id):
-    id_user = request.view_args['id']
+@app.route("/teste")
+def teste():
+    id_user = request.args.get('id')
     result = Markup('<span style="color: red;">{}</span>'.format(id_user))
     return render_template('index.html', result=result)
     
