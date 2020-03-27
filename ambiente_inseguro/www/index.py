@@ -61,9 +61,9 @@ def teste():
         
 
     content = "</table>"
-    result = Markup(content)
+    # result = Markup(content)
 
-    return render_template('index.html', result=result)
+    return render_template('index.html', result=content)
     
 
 if __name__ == "__main__":
