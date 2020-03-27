@@ -40,16 +40,10 @@ def test():
 def teste():
     id_user = request.args.get('id')
     
-    sql_select_Query = "select * from user where id={}".format(id_user)
+    sql_select_Query = text("select * from user where id={}".format(id_user))
     
-    cursor = db.session.cursor()
-    cursor.execute(sql_select_Query)
-    records = cursor.fetchall()
-    print("Total number of rows in Laptop is: ", cursor.rowcount)
-
-    user = ""
-    for row in records:
-        user = row[1]
+    result = db.engine.execute(sql_select_Query)
+    user = [row[0] for row in result]
 
     result = Markup('<span style="color: red;">{}</span><br>nome={}'.format(id_user, user))
 
