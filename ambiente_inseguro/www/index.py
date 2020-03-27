@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 # Configure MySQL connection.
 db = SQLAlchemy()
-db_uri = 'mysql://root:supersecure@db/information_schema'
+db_uri = 'mysql://root:supersecure@db/ambienteInseguro'
 app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
