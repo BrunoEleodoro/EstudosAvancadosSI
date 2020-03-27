@@ -35,9 +35,10 @@ def test():
     # Return the page with the result.
     return render_template('index.html', result=result)
 
-@app.route("/teste")
-def teste():
-    result = Markup('<span style="color: red;">TESTE ROTA</span>')
+@app.route("/teste/<id>")
+def teste(id):
+    assert section == request.view_args['section']
+    result = Markup('<span style="color: red;">{}</span>'.format(section))
     return render_template('index.html', result=result)
     
 
