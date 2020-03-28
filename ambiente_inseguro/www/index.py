@@ -60,8 +60,8 @@ def teste():
         content = content + str("</tr>")
         
 
-    content = "</table>"
-    print(content)
+    content = content + str("</table>")
+    # print(content)
     # result = Markup(content)
 
     return render_template('index.html', result=content)
