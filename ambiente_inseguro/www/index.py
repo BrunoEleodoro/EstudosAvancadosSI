@@ -61,6 +61,7 @@ def teste():
         
 
     content = "</table>"
+    print(content)
     # result = Markup(content)
 
     return render_template('index.html', result=content)
