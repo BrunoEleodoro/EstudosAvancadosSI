@@ -38,11 +38,11 @@ def test():
 
 @app.route("/teste")
 def teste():
-    id_user = int(request.args.get('id'))
+    id_user = request.args.get('id')
     
     # sql_select_Query = text(format(id_user))
     
-    result = db.engine.execute("select * from user where id=%d", id_user)
+    result = db.engine.execute("select * from user where id=%s", id_user)
 
     # user = [row[1] for row in result]
     content = "<table>"
