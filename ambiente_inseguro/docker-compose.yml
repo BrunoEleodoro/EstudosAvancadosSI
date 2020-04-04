@@ -14,5 +14,6 @@ services:
     build: db/.
     volumes:
       - /var/lib/mysql
+      - ./database.sql:/docker-entrypoint-initdb.d/dump.sql
     environment:
        MYSQL_ROOT_PASSWORD: supersecure
