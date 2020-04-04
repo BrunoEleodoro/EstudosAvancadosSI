@@ -42,7 +42,7 @@ def teste():
     
     # sql_select_Query = text(format(id_user))
     
-    result = db.engine.execute("select * from user where id=(?)", (id_user,))
+    result = db.engine.execute("select * from user where id=(?)", (id_user))
 
     # user = [row[1] for row in result]
     content = "<table>"
